@@ -1,4 +1,4 @@
-package com.example.tsumegodaily
+package fr.alextheo.tsumegodaily
 
 import org.junit.Test
 
