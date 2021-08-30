@@ -1,0 +1,6 @@
+<resources>
+
+    <style name="Widget.Theme.TsumegoDaily.BoardView" parent="">
+        <item name="android:background">@color/board_color</item>
+    </style>
+</resources>

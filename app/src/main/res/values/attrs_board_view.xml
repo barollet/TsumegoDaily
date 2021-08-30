@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="BoardView">
+        <attr name="min_intersection_height" format="integer" />
+        <attr name="min_intersection_width" format="integer" />
+    </declare-styleable>
+</resources>
