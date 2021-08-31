@@ -4,9 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/theo/AndroidStudioProjects/TsumegoDaily/app/src/main/res/layout/activity_main.xml" value="0.18697916666666667" />
-        <entry key="..\:/Users/theo/AndroidStudioProjects/TsumegoDaily/app/src/main/res/layout/board_fragment.xml" value="0.18697916666666667" />
+        <entry key="..\:/Users/theo/AndroidStudioProjects/TsumegoDaily/app/src/main/res/layout/board_fragment.xml" value="0.25" />
         <entry key="..\:/Users/theo/AndroidStudioProjects/TsumegoDaily/app/src/main/res/layout/sample_board_view.xml" value="0.18697916666666667" />
         <entry key="..\:/Users/theo/AndroidStudioProjects/TsumegoDaily/app/src/main/res/layout/sample_my_view.xml" value="0.17291666666666666" />
+        <entry key="..\:/Users/theo/AndroidStudioProjects/TsumegoDaily/app/src/main/res/layout/tsumego_fragment.xml" value="0.18697916666666667" />
       </map>
     </option>
   </component>

@@ -15,14 +15,14 @@ import java.util.*
 
 class BoardView constructor(
         context: Context,
-        sgf: String? = null,
+        sgf: SGFParser,
         attrs: AttributeSet? = null,
     ) : View(context, attrs) {
 
     // A vector of moves (x, y) intersections
     // Black plays first
     private var _variation: Vector<Pair<Int, Int>> = Vector()
-    private val _sgf = SGFParser(sgf)
+    private val _sgf = sgf
 
     private var _stone_size = 20 // Placeholder value
 
