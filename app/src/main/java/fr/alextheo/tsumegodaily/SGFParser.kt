@@ -1,6 +1,5 @@
 package fr.alextheo.tsumegodaily
 
-import android.os.Build
 import java.lang.StringBuilder
 import java.util.*
 
@@ -48,12 +47,12 @@ class SGFParser(sgf: String?) {
     private fun flipPosition(positions: Vector<Pair<Int, Int>>) {
         for (i in 0 until positions.size) {
             val old = positions[i]
-            positions.set(i, Pair(old.second, old.first))
+            positions[i] = Pair(old.second, old.first)
         }
     }
 
     private fun parseSgfNode(sgf: String) = sequence {
-        var buffer = StringBuilder()
+        val buffer = StringBuilder()
         for (c in sgf) {
             when (c) {
                 '[' -> buffer.clear()

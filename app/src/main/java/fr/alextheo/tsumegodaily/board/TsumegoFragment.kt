@@ -11,10 +11,6 @@ import fr.alextheo.tsumegodaily.SGFParser
 
 class TsumegoFragment : Fragment(R.layout.tsumego_fragment) {
 
-    companion object {
-        fun newInstance() = TsumegoFragment()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
