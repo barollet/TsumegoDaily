@@ -5,7 +5,6 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
-import android.view.MotionEvent
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.example.tsumegodaily.R
@@ -13,15 +12,9 @@ import fr.alextheo.tsumegodaily.SGFParser
 import java.util.*
 
 
-class BoardView constructor(
-        context: Context,
-        sgf: SGFParser,
-        attrs: AttributeSet? = null,
-    ) : View(context, attrs) {
+open class BoardView(context: Context, sgf: SGFParser, attrs: AttributeSet? = null) :
+    View(context, attrs) {
 
-    // A vector of moves (x, y) intersections
-    // Black plays first
-    private var _variation: Vector<Pair<Int, Int>> = Vector()
     private val _sgf = sgf
 
     private var _stone_size = 20 // Placeholder value
@@ -44,31 +37,6 @@ class BoardView constructor(
         textSize = 55f
     }
 
-    fun addVariationMove(move: Pair<Int, Int>) {
-        _variation.add(move)
-        invalidate()
-    }
-    fun removeLastVariationMove() {
-        _variation.removeLast()
-        invalidate()
-    }
-    fun clearVariation() {
-        _variation.clear()
-        invalidate()
-    }
-
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        // If click is performed (the touch is released)
-        if (event?.action == MotionEvent.ACTION_UP) {
-            val x = event.getX()
-            val y = event.getY()
-            // TODO Alex avec les coordonées x et y de l'event tu dois trouver les coordonées du coup
-            // tu connais aussi la taille d'une pierre
-        }
-
-        return super.onTouchEvent(event)
-    }
-
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
@@ -76,12 +44,6 @@ class BoardView constructor(
         drawBoard(canvas)
 
         drawInitialStones(canvas)
-        drawVariationStones(canvas)
-
-        // TODO Alex enlever ce commentaire quand tu as fini
-        // Exemple de placement de pierre
-        //placeStone(canvas, Pair(2, 3), Color.BLACK, 5)
-        //placeStone(canvas, Pair(3, 4), Color.WHITE)
     }
 
     private fun drawBoard(canvas: Canvas) {
@@ -105,11 +67,14 @@ class BoardView constructor(
     }
 
     private fun drawInitialStones(canvas: Canvas) {
-        // TODO Alex tu peux aller voir dans SGFParser
-        // comment voir où sont les pierres
+        placeColorStones(canvas, _sgf._initial_stones.first, Color.BLACK);
+        placeColorStones(canvas, _sgf._initial_stones.second, Color.WHITE);
     }
-    private fun drawVariationStones(canvas: Canvas) {
-        // TODO Alex Ici tu as juste à lire les pierres de _variations et les placer
+
+    private fun placeColorStones(canvas: Canvas, stones: Vector<Pair<Int, Int>>, color: Int) {
+        for (position in stones) {
+            placeStone(canvas, position, color);
+        }
     }
 
     private fun placeStone(canvas: Canvas, position: Pair<Int, Int>, color: Int, number: Int? = null) {

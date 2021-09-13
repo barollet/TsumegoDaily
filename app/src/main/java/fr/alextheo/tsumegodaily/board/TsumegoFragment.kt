@@ -21,7 +21,7 @@ class TsumegoFragment : Fragment(R.layout.tsumego_fragment) {
 
         // Fetching the SGF from the bundle and adding the board to the fragment
         val sgf = SGFParser(requireArguments().getString("tsumego_sgf"))
-        layout.addView(BoardView(requireContext(), sgf))
+        layout.addView(VariationBoardView(requireContext(), sgf))
 
         return view
     }
